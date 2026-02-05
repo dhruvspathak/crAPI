@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM amd64/python:3.13.11-slim
 # Install required system packages for compiling hnswlib
 RUN apt-get update && apt-get install -y \
     build-essential \

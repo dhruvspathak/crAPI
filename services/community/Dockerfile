@@ -12,7 +12,7 @@
 
 
 # GoLang Build
-FROM golang:1.21-alpine AS builder
+FROM golang:1.25.5-alpine3.23 AS builder
 ENV GO111MODULE=on \
     CGO_ENABLED=0
 WORKDIR /build

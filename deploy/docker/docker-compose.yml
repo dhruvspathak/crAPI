@@ -270,7 +270,7 @@ services:
 
   mongodb:
     container_name: mongodb
-    image: 'mongo:4.4'
+    image: 'mongo:7.0.29'
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: crapisecretpassword
@@ -292,7 +292,7 @@ services:
 
   chromadb:
     container_name: chromadb
-    image: 'chromadb/chroma:latest'
+    image: 'chromadb/chroma:1.4.1.dev10'
     environment:
       IS_PERSISTENT: 'TRUE'
     healthcheck:
