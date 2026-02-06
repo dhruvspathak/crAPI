@@ -23,6 +23,8 @@ spec:
         - name: {{ .Values.mongodb.name }}
           image: {{ .Values.mongodb.image }}:{{ .Values.mongodb.version }}
           imagePullPolicy: {{ .Values.mongodb.imagePullPolicy }}
+          securityContext:
+            allowPrivilegeEscalation: false
           ports:
             - containerPort: {{ .Values.mongodb.port }}
           envFrom:

@@ -1,10 +1,11 @@
 apiVersion: v1
-kind: ConfigMap
+kind: Secret
 metadata:
-  name: mongodb-config
+  name: mongodb-secret
   labels:
     app: mongodb
-data:
+type: Opaque
+stringData:
   MONGO_INITDB_ROOT_USERNAME: admin
-  MONGO_INITDB_ROOT_PASSWORD: crapisecretpassword
+  MONGO_INITDB_ROOT_PASSWORD: changeme
  

@@ -32,6 +32,8 @@ spec:
         - name: {{ .Values.mailhog.name }}
           image: {{ .Values.mailhog.image }}:{{ .Chart.AppVersion }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
+          securityContext:
+            allowPrivilegeEscalation: false
           livenessProbe:
             tcpSocket:
               port: {{ .Values.mailhog.smtpPort }}

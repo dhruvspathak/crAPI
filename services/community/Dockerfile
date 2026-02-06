@@ -38,9 +38,11 @@ COPY --from=builder /dist/main /app/main
 COPY certs /app/certs
 COPY health.sh /app/health.sh
 RUN ls -al /app
+RUN adduser -D -u 1001 appuser && chown -R appuser:appuser /app
 
 ARG SERVER_PORT
 EXPOSE ${SERVER_PORT}
 # Expose profiling port
 EXPOSE 6060
+USER appuser
 CMD /app/main

@@ -24,6 +24,8 @@ spec:
         - name: mailhog
           image: crapi/mailhog:latest
           imagePullPolicy: "Always"
+          securityContext:
+            allowPrivilegeEscalation: false
           livenessProbe:
             tcpSocket:
               port: 1025

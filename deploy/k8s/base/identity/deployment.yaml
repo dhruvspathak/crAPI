@@ -19,6 +19,8 @@ spec:
           args:
             - "service"
             - "postgresdb"
+          securityContext:
+            allowPrivilegeEscalation: false
       volumes:
         - name: jwt-key-secret
           secret:
@@ -26,6 +28,8 @@ spec:
       containers:
         - name: crapi-identity
           image: crapi/crapi-identity:latest
+          securityContext:
+            allowPrivilegeEscalation: false
           volumeMounts:
             - mountPath: "/.keys"
               name: jwt-key-secret

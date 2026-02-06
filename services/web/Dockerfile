@@ -36,6 +36,8 @@ COPY ./nginx.ssl.conf.template /etc/nginx/conf.d/default.ssl.conf.template
 RUN mkdir -p /app
 COPY ./certs /app/certs
 RUN echo "daemon off;" >> /usr/local/openresty/nginx/conf/nginx.conf
+RUN adduser -D -u 1001 appuser && chown -R appuser:appuser /usr/share/nginx/html /app /usr/local/openresty/nginx
+USER appuser
 EXPOSE 80
 EXPOSE 443
 

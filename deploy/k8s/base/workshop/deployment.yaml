@@ -19,15 +19,21 @@ spec:
           args:
             - "service"
             - "crapi-identity"
+          securityContext:
+            allowPrivilegeEscalation: false
         - name: wait-for-crapi-community
           image: groundnuty/k8s-wait-for:v1.3
           imagePullPolicy: Always
           args:
             - "service"
             - "crapi-community"
+          securityContext:
+            allowPrivilegeEscalation: false
       containers:
       - name: crapi-workshop
         image: crapi/crapi-workshop:latest
+        securityContext:
+          allowPrivilegeEscalation: false
         imagePullPolicy: Always  
         ports:
         - containerPort: 8000

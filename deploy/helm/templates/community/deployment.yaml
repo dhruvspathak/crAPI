@@ -29,23 +29,31 @@ spec:
           args:
             - "service"
             - {{ .Values.postgresdb.service.name | quote }}
+          securityContext:
+            allowPrivilegeEscalation: false
         - name: wait-for-mongo
           image: {{ .Values.waitForK8sResources.image }}
           imagePullPolicy: {{ .Values.waitForK8sResources.imagePullPolicy }}
           args:
             - "service"
             - {{ .Values.mongodb.service.name | quote }}
+          securityContext:
+            allowPrivilegeEscalation: false
         - name: wait-for-identity
           image: {{ .Values.waitForK8sResources.image }}
           imagePullPolicy: {{ .Values.waitForK8sResources.imagePullPolicy }}
           args:
             - "service"
             - {{ .Values.identity.service.name | quote }}
+          securityContext:
+            allowPrivilegeEscalation: false
       {{- end }}
       containers:
         - name: {{ .Values.community.name }}
           image: {{ .Values.community.image }}:{{ .Chart.AppVersion }}
           imagePullPolicy: {{ .Values.imagePullPolicy }}
+          securityContext:
+            allowPrivilegeEscalation: false
           ports:
             - containerPort: {{ .Values.community.port }}
           envFrom:

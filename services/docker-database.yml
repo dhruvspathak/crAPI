@@ -18,7 +18,7 @@ services:
     command: ["postgres", "-c", "max_connections=500"]
     environment:
       POSTGRES_USER: admin
-      POSTGRES_PASSWORD: crapisecretpassword
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
       POSTGRES_DB: crapi
     ports:
       - "127.0.0.1:5432:5432"
@@ -33,7 +33,7 @@ services:
     image: 'mongo:7.0.29'
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: crapisecretpassword
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:-changeme}
     ports:
       - "127.0.0.1:27017:27017"
     healthcheck:
