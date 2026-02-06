@@ -5,3 +5,7 @@ __pycache__/
 *.pyc
 db*/
 pkg/
+# Environment variables
+.env
+.env.local
+.env.*.local

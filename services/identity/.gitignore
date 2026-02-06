@@ -23,3 +23,7 @@ gradle-app.setting
 bin/
 test-results/
 /pkg/
+# Environment variables
+.env
+.env.local
+.env.*.local
