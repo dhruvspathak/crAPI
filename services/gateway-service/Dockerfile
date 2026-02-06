@@ -15,7 +15,7 @@ RUN wget https://github.com/minio/certgen/releases/latest/download/certgen-linux
 RUN /tmp/certgen -host "127.0.0.1,gateway-service,api.mypremiumdealership.com,mypremiumdealership.com"
 RUN ls -la
 
-FROM debian:bookworm-slim
+FROM debian:13.3
 SHELL ["/bin/bash", "-c"]
 WORKDIR /app
 
