@@ -21,5 +21,7 @@ RUN mkdir -p /app/resources
 COPY src/resources/crapi-openapi-spec.json /app/resources/crapi-openapi-spec.json
 ENV PYTHONPATH="/app"
 COPY entrypoint.sh /app/entrypoint.sh
+RUN useradd -m -u 1001 appuser && chown -R appuser:appuser /app
+USER appuser
 CMD /app/entrypoint.sh
 EXPOSE 5002 5500

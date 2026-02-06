@@ -42,6 +42,8 @@ RUN apk update && apk add --no-cache postgresql-libs curl cairo
 RUN pip install --no-index --find-links=/app/wheels -r requirements.txt
 COPY ./certs /app/certs
 COPY health.sh /app/health.sh
+RUN adduser -D -u 1001 appuser && chown -R appuser:appuser /app
+USER appuser
 ARG SERVER_PORT
 EXPOSE ${SERVER_PORT}
 CMD ["/app/runner.sh"]

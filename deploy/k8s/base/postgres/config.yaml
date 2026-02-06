@@ -1,11 +1,12 @@
 apiVersion: v1
-kind: ConfigMap
+kind: Secret
 metadata:
-  name: postgres-config
+  name: postgres-secret
   labels:
     app: postgresdb
-data:
+type: Opaque
+stringData:
   POSTGRES_USER: admin
-  POSTGRES_PASSWORD: crapisecretpassword
+  POSTGRES_PASSWORD: changeme
   POSTGRES_DB: crapi
  

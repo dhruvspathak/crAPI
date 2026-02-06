@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-jwtSecret: crapi
+jwtSecret: ""
 enableLog4j: true
 enableShellInjection: true
 imagePullPolicy: Always
@@ -116,14 +116,14 @@ identity:
     smtpHost: "smtp.example.com"
     smtpPort: 587
     smtpEmail: "user@example.com"
-    smtpPass: "xxxxxxxxxxxxxx"
+    smtpPass: ""
     smtpFrom: "no-reply@example.com"
     smtpAuth: true
     smtpStartTLS: true
     keyStoreType: PKCS12
     keyStore: classpath:certs/server.p12
-    keyStorePassword: passw0rd
-    keyPassword: passw0rd
+    keyStorePassword: ""
+    keyPassword: ""
     keyAlias: identity
   deploymentLabels:
     app: crapi-identity
@@ -173,7 +173,7 @@ workshop:
       app: crapi-workshop
     postgresDbDriver: postgres
     mongoDbDriver: mongodb
-    secretKey: crapi
+    secretKey: ""
     filesLimit: 1000
   deploymentLabels:
     app: crapi-workshop
@@ -199,11 +199,11 @@ chatbot:
       app: crapi-chatbot
     postgresDbDriver: postgres
     mongoDbDriver: mongodb
-    secretKey: crapi
+    secretKey: ""
     maxContentLength: 50000
     chromaPersistDirectory: /app/vectorstore
     apiUser: admin@example.com
-    apiPassword: Admin!123
+    apiPassword: ""
     openapiSpec: /app/resources/crapi-openapi-spec.json
   storage:
     # type: "manual"

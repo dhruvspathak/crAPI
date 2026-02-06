@@ -24,6 +24,8 @@ spec:
           image: {{ .Values.postgresdb.image }}:{{ .Values.postgresdb.version }}
           imagePullPolicy: {{ .Values.postgresdb.imagePullPolicy }}
           args: ["-c", "max_connections=500"]
+          securityContext:
+            allowPrivilegeEscalation: false
           ports:
             - containerPort: {{ .Values.postgresdb.port }}
           envFrom:
@@ -34,6 +36,7 @@ spec:
             - mountPath: /var/lib/postgresql/data
               name: postgres-data
               subPath: postgres
+              readOnly: false
       volumes:
         - name: postgres-data
           persistentVolumeClaim:

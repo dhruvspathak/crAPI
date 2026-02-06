@@ -19,21 +19,29 @@ spec:
           args:
             - "service"
             - "postgresdb"
+          securityContext:
+            allowPrivilegeEscalation: false
         - name: wait-for-mongo
           image: groundnuty/k8s-wait-for:v1.3
           imagePullPolicy: Always
           args:
             - "service"
             - "mongodb"
+          securityContext:
+            allowPrivilegeEscalation: false
         - name: wait-for-identity
           image: groundnuty/k8s-wait-for:v1.3
           imagePullPolicy: Always
           args:
             - "service"
             - "crapi-identity"
+          securityContext:
+            allowPrivilegeEscalation: false
       containers:
       - name: crapi-community
         image: crapi/crapi-community:latest
+        securityContext:
+          allowPrivilegeEscalation: false
         imagePullPolicy: Always
         ports:
         - containerPort: 8087

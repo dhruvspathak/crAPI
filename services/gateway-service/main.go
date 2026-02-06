@@ -8,6 +8,7 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
+	"os"
 	"strings"
 	"time"
 
@@ -151,7 +152,18 @@ func GetPayMentInfo(w http.ResponseWriter, r *http.Request) {
 }
 
 func checkCreds(user string, pass string) bool {
-	if user == "vendorcrapi" && pass == "Pa$$4Vendor_1" {
+	expectedUser := os.Getenv("API_GATEWAY_USERNAME")
+	expectedPass := os.Getenv("API_GATEWAY_PASSWORD")
+	
+	// Fallback to defaults if env vars not set (for backward compatibility)
+	if expectedUser == "" {
+		expectedUser = "vendorcrapi"
+	}
+	if expectedPass == "" {
+		expectedPass = "Pa$$4Vendor_1"
+	}
+	
+	if user == expectedUser && pass == expectedPass {
 		return true
 	}
 	return false

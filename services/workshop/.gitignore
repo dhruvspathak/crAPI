@@ -4,3 +4,7 @@ __pycache__/
 .coverage
 *.xml
 test-results/
+# Environment variables
+.env
+.env.local
+.env.*.local
