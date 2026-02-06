@@ -8,7 +8,7 @@ services:
     environment:
       - MYSQL_DATABASE=gorm
       - MYSQL_USER=gorm
-      - MYSQL_PASSWORD=gorm
+      - MYSQL_PASSWORD=""
       - MYSQL_RANDOM_ROOT_PASSWORD="yes"
   postgres:
     image: 'postgres:latest'
@@ -17,14 +17,14 @@ services:
     environment:
       - POSTGRES_USER=gorm
       - POSTGRES_DB=gorm
-      - POSTGRES_PASSWORD=gorm
+      - POSTGRES_PASSWORD=""
   mssql:
     image: 'mcmoe/mssqldocker:latest'
     ports:
       - 9930:1433
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=LoremIpsum86
+      - SA_PASSWORD=""
       - MSSQL_DB=gorm
       - MSSQL_USER=gorm
-      - MSSQL_PASSWORD=LoremIpsum86
+      - MSSQL_PASSWORD=""

@@ -6,4 +6,4 @@ docker save crapi/crapi-workshop:develop -o crapi-workshop.tar
 docker save crapi/crapi-chatbot:develop -o crapi-chatbot.tar
 docker save crapi/crapi-web:develop -o crapi-web.tar
 docker save postgres:14 -o postgres.tar
-docker save mongo:4.4 -o mongo.tar
+docker save mongo:7.0.29 -o mongo.tar

@@ -30,14 +30,14 @@ services:
 
   mongodb:
     container_name: mongodb
-    image: 'mongo:4.4'
+    image: 'mongo:7.0.29'
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: crapisecretpassword
     ports:
       - "127.0.0.1:27017:27017"
     healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongo mongodb:27017/test --quiet
+      test: [ "CMD-SHELL", "mongosh --quiet --eval 'db.runCommand({ ping: 1 }).ok' " ]
       interval: 15s
       timeout: 15s
       retries: 15
